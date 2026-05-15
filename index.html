@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rideaux sur mesure à Paris · Atelier Créa Plus</title>
+  <meta name="description" content="Rideaux sur mesure confectionnés et posés à Paris depuis 1987. Plis tenus main, doublures, tringlerie. Métré offert à Paris et région parisienne.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('project/design-system/fonts/CormorantGaramond-VariableFont_wght.ttf') format('truetype');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('project/design-system/fonts/CormorantGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 300 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  :root {
+    --bg-1:         #F5F0E8;
+    --bg-2:         #EDE8DC;
+    --dark-1:       #2A2520;
+    --dark-2:       #1C1A18;
+    --fg-1:         #1C1A18;
+    --fg-2:         #7A7266;
+    --fg-on-dark-1: #F5F0E8;
+    --fg-on-dark-2: #A8A096;
+    --accent:       #8B5E3C;
+    --accent-hover: #A0714F;
+    --border:       #D4CDBF;
+    --border-dark:  #3D362F;
+    --font-serif:   'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    --font-sans:    'Jost', 'Futura', 'Avenir Next', system-ui, sans-serif;
+    --container:    1280px;
+    --ease:         cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg-1); color: var(--fg-1); font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+  img { display: block; max-width: 100%; }
+  a { color: var(--accent); text-decoration: none; transition: color 200ms var(--ease); }
+  a:hover { color: var(--accent-hover); }
+  p { margin: 0 0 1em; text-wrap: pretty; }
+  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 300; line-height: 1.05; letter-spacing: -0.01em; margin: 0; color: inherit; }
+  .fleuron { font-family: var(--font-serif); font-size: 36px; color: var(--accent); display: block; line-height: 1; margin-bottom: 16px; }
+
+  /* ── Nav ── */
+  .lp-nav { position: sticky; top: 0; z-index: 40; background: var(--dark-1); color: var(--fg-on-dark-1); border-bottom: 1px solid var(--border-dark); }
+  .lp-nav__inner { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 32px; padding: 18px 56px; max-width: var(--container); margin: 0 auto; }
+  .lp-nav__brand { display: inline-flex; align-items: center; gap: 14px; color: var(--fg-on-dark-1); }
+  .lp-nav__brand:hover { color: var(--fg-on-dark-1); }
+  .lp-nav__logo { width: 44px; height: 44px; object-fit: contain; filter: invert(1); }
+  .lp-nav__wm { display: flex; flex-direction: column; gap: 4px; line-height: 1; }
+  .lp-nav__wm-main { font-family: var(--font-serif); font-weight: 400; font-size: 22px; letter-spacing: 0; }
+  .lp-nav__wm-main em { font-style: italic; color: var(--accent); }
+  .lp-nav__wm-sub { font-family: var(--font-sans); font-size: 9px; text-transform: uppercase; letter-spacing: 0.3em; color: var(--fg-on-dark-2); }
+  .lp-nav__links { display: flex; gap: 28px; justify-self: center; }
+  .lp-nav__links a { font-family: var(--font-sans); font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.18em; color: var(--fg-on-dark-1); padding: 8px 0; border-bottom: 1px solid transparent; transition: color 200ms var(--ease), border-color 200ms var(--ease); }
+  .lp-nav__links a:hover { color: var(--accent-hover); border-bottom-color: var(--accent); }
+  .lp-nav__links a.is-active { color: var(--accent); border-bottom-color: var(--accent); }
+  .lp-nav__phone { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid var(--border-dark); color: var(--fg-on-dark-1); transition: border-color 200ms var(--ease), color 200ms var(--ease); }
+  .lp-nav__phone:hover { border-color: var(--accent); color: var(--accent); }
+  .lp-nav__phone-num { font-family: var(--font-serif); font-size: 18px; font-weight: 400; letter-spacing: 0.01em; display: block; }
+  .lp-nav__phone-meta { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-on-dark-2); }
+  .lp-nav__cta { font-family: var(--font-sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; padding: 14px 20px; background: var(--accent); color: var(--bg-1); border: 1px solid var(--accent); transition: background 200ms var(--ease), border-color 200ms var(--ease); }
+  .lp-nav__cta:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--bg-1); }
+
+  /* ── Hero ── */
+  .hero-wrap { position: relative; background: var(--dark-1); color: var(--fg-on-dark-1); overflow: hidden; }
+  .hero-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,26,24,0.5) 0%, rgba(28,26,24,0.85) 100%); pointer-events: none; }
+  .hero-wrap__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-wrap__inner { position: relative; z-index: 1; max-width: var(--container); margin: 0 auto; padding: 88px 56px 96px; }
+  .hero-wrap__eyebrow { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.28em; color: var(--accent-hover); display: inline-flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .hero-wrap__eyebrow::before, .hero-wrap__eyebrow::after { content: ''; display: inline-block; width: 32px; height: 1px; background: currentColor; }
+  .hero-wrap__title { font-family: var(--font-serif); font-weight: 300; font-size: clamp(56px, 6vw, 88px); line-height: 1; letter-spacing: -0.015em; margin: 0; }
+  .hero-wrap__lede { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 22px; line-height: 1.5; color: var(--fg-on-dark-2); margin: 32px 0 0; max-width: 48ch; }
+
+  .hero-a__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 80px; align-items: start; }
+  .hero-a__phone-block { margin-top: 44px; display: flex; align-items: center; gap: 24px; padding: 20px 0; border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
+  .hero-a__phone-block-meta { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--fg-on-dark-2); }
+  .hero-a__phone-block-num { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-height: 1; letter-spacing: -0.005em; color: var(--fg-on-dark-1); margin-top: 6px; display: inline-block; }
+  .hero-a__phone-block-num:hover { color: var(--accent-hover); }
+  .hero-a__phone-divider { width: 1px; height: 56px; background: var(--border-dark); }
+  .hero-a__urgency { font-family: var(--font-serif); font-style: italic; font-size: 16px; color: var(--fg-on-dark-2); line-height: 1.4; margin: 0; }
+  .hero-a__urgency strong { font-style: normal; font-family: var(--font-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+  .hero-a__badges { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid var(--border-dark); }
+  .hero-a__badge { flex: 1 1 0; padding: 16px 18px 16px 0; border-right: 1px solid var(--border-dark); }
+  .hero-a__badge:last-child { border-right: 0; padding-right: 0; }
+  .hero-a__badge:not(:first-child) { padding-left: 18px; }
+  .hero-a__badge-label { font-family: var(--font-sans); font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--accent-hover); }
+  .hero-a__badge-val { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 17px; color: var(--fg-on-dark-1); margin-top: 6px; line-height: 1.3; }
+
+  /* ── Form card ── */
+  .form-card { background: var(--bg-1); color: var(--fg-1); padding: 44px 40px 40px; border: 1px solid var(--border); position: relative; }
+  .form-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent); }
+  .form-card--full { border-color: var(--fg-1); outline: 1px solid var(--border); outline-offset: 8px; }
+  .form-card__head { margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .form-card__eyebrow { font-family: var(--font-sans); font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--accent); font-weight: 500; display: inline-flex; align-items: center; gap: 10px; }
+  .form-card__eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: currentColor; }
+  .form-card__title { font-family: var(--font-serif); font-weight: 300; font-size: 40px; line-height: 1.05; letter-spacing: -0.015em; margin: 14px 0 0; }
+  .form-card__title em { font-style: italic; color: var(--accent); }
+  .form-card__lede { margin-top: 14px; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 16px; line-height: 1.5; color: var(--fg-2); margin-bottom: 0; }
+  .form-card__body { display: flex; flex-direction: column; gap: 24px; }
+  .form-card__row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .form-card__group { display: flex; flex-direction: column; }
+  .form-card__label { font-family: var(--font-sans); font-size: 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.18em; color: var(--fg-2); margin-bottom: 8px; }
+  .form-card__label-aux { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 13px; text-transform: none; letter-spacing: 0; color: var(--fg-2); margin-left: 8px; }
+  .form-card__input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); border-radius: 0; padding: 10px 0; font-family: var(--font-sans); font-size: 15px; color: var(--fg-1); outline: none; transition: border-color 200ms var(--ease); }
+  .form-card__input:focus { border-bottom-color: var(--accent); }
+  .form-card__input::placeholder { color: var(--fg-2); font-weight: 300; }
+  textarea.form-card__input { resize: vertical; min-height: 96px; }
+  .form-card__chips { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--border); background: var(--bg-1); }
+  .form-card__chip { flex: 1 1 auto; font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; padding: 12px 14px; background: transparent; border: 0; border-right: 1px solid var(--border); color: var(--fg-2); cursor: pointer; transition: background 200ms var(--ease), color 200ms var(--ease); text-align: center; }
+  .form-card__chip:last-child { border-right: 0; }
+  .form-card__chip:hover { color: var(--accent); }
+  .form-card__chip.is-active { background: var(--accent); color: var(--bg-1); }
+  .form-card__foot { padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .form-card__note { font-family: var(--font-sans); font-size: 11px; color: var(--fg-2); max-width: 30ch; line-height: 1.4; }
+  .form-card__note strong { color: var(--accent); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; display: block; margin-bottom: 2px; }
+  .form-card__submit { font-family: var(--font-sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; padding: 16px 28px; background: var(--fg-1); color: var(--bg-1); border: 1px solid var(--fg-1); cursor: pointer; transition: background 200ms var(--ease), border-color 200ms var(--ease); }
+  .form-card__submit:hover { background: var(--accent); border-color: var(--accent); }
+  .form-card__ok { text-align: center; padding: 56px 24px; }
+  .form-card__ok h3 { font-family: var(--font-serif); font-weight: 300; font-size: 32px; margin: 0 0 12px; letter-spacing: -0.005em; }
+  .form-card__ok p { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 17px; color: var(--fg-2); margin: 0; }
+
+  /* ── Photo uploader ── */
+  .photo-up { position: relative; }
+  .photo-up__btn { display: inline-flex; align-items: center; gap: 12px; background: transparent; border: 1px dashed var(--border); padding: 14px 20px; font-family: var(--font-sans); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: var(--fg-1); cursor: pointer; transition: border-color 200ms var(--ease), color 200ms var(--ease), background 200ms var(--ease); }
+  .photo-up__btn:hover { border-color: var(--accent); color: var(--accent); border-style: solid; }
+  .photo-up__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .photo-up__btn-ico { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; color: var(--accent); }
+  .photo-up__hint { margin: 12px 0 0; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 13px; line-height: 1.45; color: var(--fg-2); max-width: 46ch; }
+  .photo-up__list { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border); }
+  .photo-up__item { display: grid; grid-template-columns: 56px 1fr auto; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .photo-up__thumb { width: 56px; height: 56px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-2); }
+  .photo-up__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-up__meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .photo-up__name { font-family: var(--font-sans); font-size: 13px; color: var(--fg-1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .photo-up__size { font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.06em; color: var(--fg-2); }
+  .photo-up__remove { width: 28px; height: 28px; background: transparent; border: 1px solid var(--border); color: var(--fg-2); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: border-color 200ms var(--ease), color 200ms var(--ease); }
+  .photo-up__remove:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Press bar ── */
+  .press-bar { padding: 36px 56px; background: var(--bg-1); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .press-bar__inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 56px; }
+  .press-bar__label { font-family: var(--font-sans); font-size: 10px; text-transform: uppercase; letter-spacing: 0.24em; color: var(--fg-2); }
+  .press-bar__logos { display: flex; align-items: center; gap: 56px; justify-content: space-between; flex-wrap: wrap; }
+  .press-logo { font-family: var(--font-serif); font-weight: 300; font-style: italic; font-size: 24px; color: var(--fg-1); letter-spacing: 0.02em; opacity: 0.55; white-space: nowrap; }
+  .press-logo--caps { font-family: var(--font-sans); font-style: normal; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.3em; }
+
+  /* ── Section helpers ── */
+  .lp-section { padding: 96px 56px; background: var(--bg-1); }
+  .lp-section--bg2 { background: var(--bg-2); }
+  .lp-section--dark { background: var(--dark-1); color: var(--fg-on-dark-1); }
+  .lp-section__inner { max-width: var(--container); margin: 0 auto; }
+  .lp-section__head { margin-bottom: 64px; display: flex; flex-direction: column; gap: 16px; max-width: 760px; }
+  .lp-section__eyebrow { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--accent); display: inline-flex; align-items: center; gap: 12px; }
+  .lp-section__eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: currentColor; }
+  .lp-section--dark .lp-section__eyebrow { color: var(--accent-hover); }
+  .lp-section__title { font-family: var(--font-serif); font-weight: 300; font-size: clamp(36px, 4vw, 56px); line-height: 1.05; letter-spacing: -0.015em; margin: 0; }
+  .lp-section__title em { font-style: italic; color: var(--accent); }
+  .lp-section--dark .lp-section__title em { color: var(--accent-hover); }
+  .lp-section__lede { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 19px; line-height: 1.5; color: var(--fg-2); margin: 0; max-width: 56ch; }
+  .lp-section--dark .lp-section__lede { color: var(--fg-on-dark-2); }
+
+  /* ── Chiffres ── */
+  .chiffres-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
+  .chiffre { padding: 36px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .chiffre__n { font-family: var(--font-serif); font-weight: 300; font-size: 64px; line-height: 1; color: var(--accent); letter-spacing: -0.02em; }
+  .chiffre__label { margin-top: 18px; font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; }
+  .chiffre__sub { margin-top: 8px; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 15px; color: var(--fg-2); }
+
+  /* ── Têtes de rideaux ── */
+  .tetes-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
+  .tete { padding: 28px 24px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 18px; background: var(--bg-1); transition: background 200ms var(--ease); cursor: pointer; }
+  .tete:hover { background: var(--bg-2); }
+  .tete__img { width: 100%; aspect-ratio: 3/2; object-fit: cover; filter: sepia(8%) saturate(0.8); border: 1px solid var(--border); }
+  .tete__name { font-family: var(--font-serif); font-weight: 300; font-size: 22px; letter-spacing: -0.005em; line-height: 1.1; margin: 0; }
+  .tete__name em { font-style: italic; color: var(--accent); }
+  .tete__desc { font-family: var(--font-sans); font-size: 13px; line-height: 1.5; color: var(--fg-2); margin: 0; }
+
+  /* ── Témoignages ── */
+  .testis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  .testi { display: flex; flex-direction: column; gap: 24px; }
+  .testi__mark { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 72px; line-height: 0.5; color: var(--accent-hover); margin: 0; }
+  .testi__quote { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 22px; line-height: 1.45; margin: 0; letter-spacing: -0.005em; }
+  .testi__meta { padding-top: 18px; border-top: 1px solid var(--border-dark); display: flex; flex-direction: column; gap: 6px; }
+  .testi__name { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--fg-on-dark-1); }
+  .testi__place { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 15px; color: var(--fg-on-dark-2); }
+
+  /* ── Réalisations ── */
+  .reals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 24px; }
+  .real-card { margin: 0; }
+  .real-card__img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border: 1px solid var(--border); transition: border-color 200ms var(--ease); }
+  .real-card:hover .real-card__img { border-color: var(--accent); }
+  .real-card__cap { margin-top: 16px; }
+  .real-card__tag { font-family: var(--font-sans); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--fg-2); }
+  .real-card__title { font-family: var(--font-serif); font-weight: 300; font-size: 22px; margin: 8px 0 4px; letter-spacing: -0.005em; line-height: 1.2; }
+  .real-card__place { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 15px; color: var(--fg-2); }
+
+  /* ── FAQ ── */
+  .faq { border-top: 1px solid var(--border); }
+  .faq__item { border-bottom: 1px solid var(--border); padding: 28px 0; display: grid; grid-template-columns: 48px 1fr; gap: 24px; align-items: start; }
+  .faq__n { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 22px; color: var(--accent); }
+  .faq__q { font-family: var(--font-serif); font-weight: 400; font-size: 24px; line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.005em; }
+  .faq__a { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--fg-2); margin: 0; max-width: 62ch; }
+
+  /* ── CTA Banner ── */
+  .cta-banner { background: var(--dark-1); color: var(--fg-on-dark-1); padding: 80px 56px; position: relative; overflow: hidden; }
+  .cta-banner__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+  .cta-banner__inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+  .cta-banner__title { font-family: var(--font-serif); font-weight: 300; font-size: clamp(36px, 4vw, 56px); line-height: 1.05; letter-spacing: -0.015em; margin: 0; }
+  .cta-banner__title em { font-style: italic; color: var(--accent-hover); }
+  .cta-banner__lede { margin-top: 18px; font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 18px; color: var(--fg-on-dark-2); max-width: 50ch; margin-bottom: 0; }
+  .cta-banner__actions { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+  .cta-banner__phone { display: inline-flex; align-items: center; gap: 14px; padding: 16px 22px; background: var(--accent); color: var(--bg-1); border: 1px solid var(--accent); transition: background 200ms var(--ease); }
+  .cta-banner__phone:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--bg-1); }
+  .cta-banner__phone-meta { font-family: var(--font-sans); font-size: 9px; text-transform: uppercase; letter-spacing: 0.22em; opacity: 0.85; }
+  .cta-banner__phone-num { font-family: var(--font-serif); font-weight: 400; font-size: 26px; letter-spacing: 0.01em; line-height: 1; margin-top: 2px; display: block; }
+  .cta-banner__email { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--fg-on-dark-2); }
+  .cta-banner__email a { color: var(--accent-hover); }
+
+  /* ── Footer ── */
+  .lp-footer { background: var(--dark-2); color: var(--fg-on-dark-1); padding: 80px 56px 28px; }
+  .lp-footer__inner { max-width: var(--container); margin: 0 auto; }
+  .lp-footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 64px; padding-bottom: 56px; border-bottom: 1px solid var(--border-dark); }
+  .lp-footer__brand { display: flex; flex-direction: column; gap: 16px; }
+  .lp-footer__brand-wm { display: flex; align-items: center; gap: 12px; }
+  .lp-footer__brand-logo { width: 48px; height: 48px; object-fit: contain; filter: invert(1); }
+  .lp-footer__brand-name { font-family: var(--font-serif); font-weight: 400; font-size: 22px; }
+  .lp-footer__brand-name em { font-style: italic; color: var(--accent); }
+  .lp-footer__pitch { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: 16px; line-height: 1.5; color: var(--fg-on-dark-2); margin: 0; max-width: 32ch; }
+  .lp-footer__head { font-family: var(--font-sans); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--fg-on-dark-2); margin: 0 0 18px; }
+  .lp-footer__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .lp-footer__list li { font-family: var(--font-sans); font-size: 14px; color: var(--fg-on-dark-1); }
+  .lp-footer__list a { color: var(--fg-on-dark-1); }
+  .lp-footer__list a:hover { color: var(--accent-hover); }
+  .lp-footer__map { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 1px solid var(--border-dark); filter: grayscale(0.3) brightness(0.85); }
+  .lp-footer__base { margin-top: 28px; display: flex; justify-content: space-between; gap: 24px; font-family: var(--font-sans); font-size: 12px; color: var(--fg-on-dark-2); flex-wrap: wrap; }
+  .lp-footer__base a { color: var(--fg-on-dark-2); }
+  .lp-footer__base a:hover { color: var(--accent-hover); }
+
+  /* ── Floating phone ── */
+  .phone-float { position: fixed; bottom: 32px; right: 32px; z-index: 50; background: var(--fg-1); color: var(--bg-1); padding: 18px 24px; display: inline-flex; align-items: center; gap: 14px; border: 1px solid var(--fg-1); transition: background 200ms var(--ease), color 200ms var(--ease); text-decoration: none; }
+  .phone-float:hover { background: var(--accent); border-color: var(--accent); color: var(--bg-1); }
+  .phone-float__icon { width: 36px; height: 36px; border: 1px solid currentColor; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 36px; }
+  .phone-float__meta { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.75; font-weight: 400; }
+  .phone-float__num { font-family: var(--font-serif); font-weight: 400; font-size: 22px; letter-spacing: 0.01em; line-height: 1; margin-top: 2px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ NAV ══ -->
+<nav class="lp-nav">
+  <div class="lp-nav__inner">
+    <a href="#" class="lp-nav__brand">
+      <img src="project/assets/logo.png" alt="" class="lp-nav__logo">
+      <span class="lp-nav__wm">
+        <span class="lp-nav__wm-main">Atelier Créa <em>Plus</em></span>
+        <span class="lp-nav__wm-sub">Tapissier · Décorateur · Paris</span>
+      </span>
+    </a>
+    <div class="lp-nav__links">
+      <a href="#rideaux" class="is-active">Rideaux</a>
+      <a href="#savoir-faire">Savoir-faire</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#temoignages">Témoignages</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:+33145110540" class="lp-nav__phone">
+      <span>
+        <span class="lp-nav__phone-meta">Atelier</span>
+        <span class="lp-nav__phone-num">01 45 11 05 40</span>
+      </span>
+    </a>
+    <a href="#devis" class="lp-nav__cta">Demander un devis</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ══ -->
+<section class="hero-wrap">
+  <img src="project/assets/hero-haussmann.jpg" alt="" class="hero-wrap__bg">
+  <div class="hero-wrap__inner">
+    <div class="hero-a__grid">
+
+      <!-- Left column: text, phone, badges -->
+      <div>
+        <div class="hero-wrap__eyebrow">Atelier Créa Plus · Tapissier-décorateur depuis 1987</div>
+        <h1 class="hero-wrap__title">Rideaux <em style="color:rgb(239,239,239)">sur mesure,</em><br>posés à Paris.</h1>
+        <p class="hero-wrap__lede">L'atelier confectionne et pose vos rideaux, doubles rideaux, voilages et stores. Plis tenus main, doublures, tringlerie. Métré offert à Paris et région parisienne.</p>
+
+        <div class="hero-a__phone-block">
+          <div>
+            <div class="hero-a__phone-block-meta">Appeler l'atelier</div>
+            <a href="tel:+33145110540" class="hero-a__phone-block-num">01 45 11 05 40</a>
+          </div>
+          <div class="hero-a__phone-divider"></div>
+          <p class="hero-a__urgency">
+            <strong style="color:rgb(255,255,255)">Devis sous 48h</strong>
+            Délais de pose 4 à 6 semaines
+          </p>
+        </div>
+
+        <div class="hero-a__badges">
+          <div class="hero-a__badge">
+            <div class="hero-a__badge-label">Métré</div>
+            <div class="hero-a__badge-val">Offert à Paris &amp; région</div>
+          </div>
+          <div class="hero-a__badge">
+            <div class="hero-a__badge-label">Façon</div>
+            <div class="hero-a__badge-val">Plis tenus à la main</div>
+          </div>
+          <div class="hero-a__badge">
+            <div class="hero-a__badge-label">Délais</div>
+            <div class="hero-a__badge-val">4 à 6 semaines</div>
+          </div>
+          <div class="hero-a__badge">
+            <div class="hero-a__badge-label">Pose</div>
+            <div class="hero-a__badge-val">Comprise dans le devis</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: form -->
+      <div>
+        <div class="form-card form-card--full" id="devis">
+          <!-- Success state (hidden until form submitted) -->
+          <div class="form-card__ok" id="form-ok" style="display:none">
+            <span class="fleuron">❦</span>
+            <h3>Votre demande nous parvient.</h3>
+            <p>L'atelier reprend contact avec vous sous 48&nbsp;heures.</p>
+          </div>
+
+          <!-- Form -->
+          <div id="form-content">
+            <header class="form-card__head">
+              <span class="form-card__eyebrow">01 — Devis gratuit, sous 48h</span>
+              <h3 class="form-card__title">Votre projet,<br><em>en quelques lignes.</em></h3>
+              <p class="form-card__lede">Décrivez la pièce. L'atelier vous rappelle pour un métré, et établit le devis chiffré sous 48 heures.</p>
+            </header>
+
+            <form class="form-card__body" id="contact-form" novalidate>
+              <div class="form-card__row">
+                <div class="form-card__group">
+                  <label class="form-card__label">Nom et prénom *</label>
+                  <input class="form-card__input" required placeholder="Madame, Monsieur…">
+                </div>
+                <div class="form-card__group">
+                  <label class="form-card__label">Téléphone *</label>
+                  <input class="form-card__input" type="tel" required placeholder="06 12 34 56 78">
+                </div>
+              </div>
+              <div class="form-card__row">
+                <div class="form-card__group">
+                  <label class="form-card__label">Courriel *</label>
+                  <input class="form-card__input" type="email" required placeholder="prenom@maison.fr">
+                </div>
+                <div class="form-card__group">
+                  <label class="form-card__label">Quartier ou ville</label>
+                  <input class="form-card__input" placeholder="Paris 16ᵉ, Neuilly, Versailles…">
+                </div>
+              </div>
+
+              <div class="form-card__group">
+                <label class="form-card__label">Nature du projet</label>
+                <div class="form-card__chips" role="radiogroup">
+                  <button type="button" class="form-card__chip is-active" role="radio" aria-checked="true">Rideaux &amp; doubles rideaux</button>
+                  <button type="button" class="form-card__chip" role="radio" aria-checked="false">Voilages</button>
+                  <button type="button" class="form-card__chip" role="radio" aria-checked="false">Stores</button>
+                  <button type="button" class="form-card__chip" role="radio" aria-checked="false">Têtes &amp; passementerie</button>
+                  <button type="button" class="form-card__chip" role="radio" aria-checked="false">Conseil &amp; relevé</button>
+                </div>
+              </div>
+
+              <div class="form-card__group">
+                <label class="form-card__label">Quelques mots sur la pièce</label>
+                <textarea class="form-card__input" placeholder="Salon d'un appartement haussmannien, 2 fenêtres de 2,80 m, doublure phonique, tissu Pierre Frey envisagé…"></textarea>
+              </div>
+
+              <!-- Photo upload -->
+              <div class="form-card__group">
+                <label class="form-card__label">Photos de la pièce <span class="form-card__label-aux">facultatif</span></label>
+                <div class="photo-up">
+                  <input type="file" accept="image/*" multiple id="photo-up-input" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none">
+                  <button type="button" class="photo-up__btn" id="photo-up-btn">
+                    <span class="photo-up__btn-ico" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="5" width="18" height="14"/>
+                        <circle cx="9" cy="11" r="1.5"/>
+                        <path d="m3 17 5-5 4 4 3-3 6 6"/>
+                      </svg>
+                    </span>
+                    <span id="photo-up-label">Ajouter des photos</span>
+                  </button>
+                  <p class="photo-up__hint">JPG ou PNG, 10&nbsp;Mo max par fichier · 5 photos maximum · une vue large de la fenêtre nous aide à vous conseiller.</p>
+                  <ul class="photo-up__list" id="photo-up-list" style="display:none"></ul>
+                </div>
+              </div>
+
+              <div class="form-card__foot">
+                <span class="form-card__note">
+                  <strong>Réponse sous 48h</strong>
+                  Vos coordonnées restent confidentielles · Aucune sollicitation commerciale.
+                </span>
+                <button type="submit" class="form-card__submit">Recevoir mon devis</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ PRESS ══ -->
+<section class="press-bar">
+  <div class="press-bar__inner">
+    <span class="press-bar__label">Cité dans</span>
+    <div class="press-bar__logos">
+      <span class="press-logo">AD&nbsp;France</span>
+      <span class="press-logo press-logo--caps">Côté Maison</span>
+      <span class="press-logo">Art &amp; Décoration</span>
+      <span class="press-logo press-logo--caps">Maison &amp; Travaux</span>
+      <span class="press-logo">IDEAT</span>
+      <span class="press-logo press-logo--caps">Le Figaro Madame</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CHIFFRES ══ -->
+<section class="lp-section lp-section--bg2">
+  <div class="lp-section__inner">
+    <header class="lp-section__head">
+      <span class="lp-section__eyebrow">L'atelier en quelques chiffres</span>
+      <h2 class="lp-section__title">Un savoir-faire <em>posé,</em> mesuré.</h2>
+    </header>
+    <div class="chiffres-grid">
+      <div class="chiffre">
+        <div class="chiffre__n">38</div>
+        <div class="chiffre__label">Années</div>
+        <div class="chiffre__sub">d'atelier rue Picot</div>
+      </div>
+      <div class="chiffre">
+        <div class="chiffre__n">+1 200</div>
+        <div class="chiffre__label">Paires</div>
+        <div class="chiffre__sub">de rideaux confectionnées</div>
+      </div>
+      <div class="chiffre">
+        <div class="chiffre__n">14</div>
+        <div class="chiffre__label">Maisons</div>
+        <div class="chiffre__sub">de tissus partenaires</div>
+      </div>
+      <div class="chiffre">
+        <div class="chiffre__n">4 à 6</div>
+        <div class="chiffre__label">Semaines</div>
+        <div class="chiffre__sub">du métré à la pose</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TÊTES ══ -->
+<section id="rideaux" class="lp-section">
+  <div class="lp-section__inner">
+    <header class="lp-section__head">
+      <span class="lp-section__eyebrow">Têtes &amp; finitions</span>
+      <h2 class="lp-section__title">Cinq <em>têtes,</em> autant<br>de partis pris.</h2>
+      <p class="lp-section__lede">Le choix de la tête détermine la silhouette du rideau — sa retombée, sa lecture sur la fenêtre, son rapport au mur. L'atelier vous conseille selon la hauteur, le tissu, et la pièce.</p>
+    </header>
+    <div class="tetes-grid">
+      <article class="tete">
+        <img class="tete__img" src="project/assets/tete-pinces.jpg" alt="Plis pincés doubles" loading="lazy">
+        <h3 class="tete__name">Plis pincés <em>doubles</em></h3>
+        <p class="tete__desc">Le classique parisien. Plis tenus à la main, ourlets sellier, doublure. Pour les hauteurs sous plafond.</p>
+      </article>
+      <article class="tete">
+        <img class="tete__img" src="project/assets/tete-creux.jpg" alt="Plis flamands" loading="lazy">
+        <h3 class="tete__name">Plis <em>flamands</em></h3>
+        <p class="tete__desc">Plis creux profonds, retombée généreuse. Convient aux tissus lourds, velours et damas.</p>
+      </article>
+      <article class="tete">
+        <img class="tete__img" src="project/assets/tete-wave.jpg" alt="Plis wave" loading="lazy">
+        <h3 class="tete__name">Plis <em>wave</em></h3>
+        <p class="tete__desc">Vague souple sur rail, contemporain. Idéal pour les baies vitrées et les volumes ouverts.</p>
+      </article>
+      <article class="tete">
+        <img class="tete__img" src="project/assets/tete-oeillets.jpg" alt="Œillets bronze ou laiton" loading="lazy">
+        <h3 class="tete__name">Œillets <em>bronze ou laiton</em></h3>
+        <p class="tete__desc">Anneaux métalliques sur tringle apparente. Lignes graphiques, pose sur fenêtre haute.</p>
+      </article>
+      <article class="tete">
+        <img class="tete__img" src="project/assets/tete-crayons.jpg" alt="Plis crayons" loading="lazy">
+        <h3 class="tete__name">Plis <em>crayons</em></h3>
+        <p class="tete__desc">Plis serrés en bande haute, ruban fronceur. Discrets, parfaits pour les voilages.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TÉMOIGNAGES ══ -->
+<section id="temoignages" class="lp-section lp-section--dark">
+  <div class="lp-section__inner">
+    <header class="lp-section__head">
+      <span class="lp-section__eyebrow">Ils nous ont confié leurs fenêtres</span>
+      <h2 class="lp-section__title">Trois mots de <em>clients.</em></h2>
+    </header>
+    <div class="testis">
+      <blockquote class="testi">
+        <span class="testi__mark" aria-hidden="true">"</span>
+        <p class="testi__quote">Trois fenêtres, trois doublures phoniques, une pose impeccable. L'atelier a pris la mesure de l'appartement avant celle des rideaux.</p>
+        <footer class="testi__meta">
+          <span class="testi__name">Madame H.</span>
+          <span class="testi__place">Paris 7ᵉ</span>
+        </footer>
+      </blockquote>
+      <blockquote class="testi">
+        <span class="testi__mark" aria-hidden="true">"</span>
+        <p class="testi__quote">Nous avons confié quatre chantiers de décoration à Créa Plus, dont un hôtel particulier. C'est rare d'avoir un seul interlocuteur, du tissu à la tringle.</p>
+        <footer class="testi__meta">
+          <span class="testi__name">Léa B., décoratrice</span>
+          <span class="testi__place">Paris 8ᵉ</span>
+        </footer>
+      </blockquote>
+      <blockquote class="testi">
+        <span class="testi__mark" aria-hidden="true">"</span>
+        <p class="testi__quote">Devis détaillé, tenue des délais, plis tenus à la main. Le travail parle pour lui — on a refait le séjour deux ans après.</p>
+        <footer class="testi__meta">
+          <span class="testi__name">Monsieur et Madame M.</span>
+          <span class="testi__place">Neuilly-sur-Seine</span>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ RÉALISATIONS ══ -->
+<section id="realisations" class="lp-section">
+  <div class="lp-section__inner">
+    <header class="lp-section__head">
+      <span class="lp-section__eyebrow">Quelques projets récents</span>
+      <h2 class="lp-section__title">Chaque pièce <em>retient</em><br>sa propre lumière.</h2>
+    </header>
+    <div class="reals-grid">
+      <figure class="real-card">
+        <img class="real-card__img" src="project/assets/real-haussmann.jpg" alt="Appartement haussmannien" loading="lazy">
+        <figcaption class="real-card__cap">
+          <div class="real-card__tag">Plis pincés</div>
+          <h3 class="real-card__title">Appartement haussmannien</h3>
+          <div class="real-card__place">Paris 16ᵉ · Lin Pierre Frey</div>
+        </figcaption>
+      </figure>
+      <figure class="real-card">
+        <img class="real-card__img" src="project/assets/real-pierrefrey.jpg" alt="Double rideaux, salon" loading="lazy">
+        <figcaption class="real-card__cap">
+          <div class="real-card__tag">Plis creux</div>
+          <h3 class="real-card__title">Double rideaux, salon</h3>
+          <div class="real-card__place">Paris 7ᵉ · Tringle noire</div>
+        </figcaption>
+      </figure>
+      <figure class="real-card">
+        <img class="real-card__img" src="project/assets/real-chambre.jpg" alt="Chambre, parquet ancien" loading="lazy">
+        <figcaption class="real-card__cap">
+          <div class="real-card__tag">Plis pincés</div>
+          <h3 class="real-card__title">Chambre, parquet ancien</h3>
+          <div class="real-card__place">Versailles · Imprimé fleuri</div>
+        </figcaption>
+      </figure>
+      <figure class="real-card">
+        <img class="real-card__img" src="project/assets/real-floral.jpg" alt="Salle à manger sur cour" loading="lazy">
+        <figcaption class="real-card__cap">
+          <div class="real-card__tag">Voilages</div>
+          <h3 class="real-card__title">Salle à manger sur cour</h3>
+          <div class="real-card__place">Neuilly · Coton imprimé</div>
+        </figcaption>
+      </figure>
+      <figure class="real-card">
+        <img class="real-card__img" src="project/assets/real-oeillets.jpg" alt="Salon d'enfant" loading="lazy">
+        <figcaption class="real-card__cap">
+          <div class="real-card__tag">Œillets</div>
+          <h3 class="real-card__title">Salon d'enfant</h3>
+          <div class="real-card__place">Boulogne · Toile graphique</div>
+        </figcaption>
+      </figure>
+      <figure class="real-card">
+        <img class="real-card__img" src="project/assets/real-restaurant.jpg" alt="Salle de restaurant" loading="lazy">
+        <figcaption class="real-card__cap">
+          <div class="real-card__tag">Plis flamands</div>
+          <h3 class="real-card__title">Salle de restaurant</h3>
+          <div class="real-card__place">Paris 6ᵉ · Velours terracotta</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FAQ ══ -->
+<section class="lp-section">
+  <div class="lp-section__inner" style="max-width:1000px">
+    <header class="lp-section__head">
+      <span class="lp-section__eyebrow">Questions fréquentes</span>
+      <h2 class="lp-section__title">Avant <em>de nous écrire.</em></h2>
+    </header>
+    <div class="faq">
+      <article class="faq__item">
+        <div class="faq__n">01</div>
+        <div>
+          <h3 class="faq__q">Sous quels délais l'atelier répond-il à une demande de devis ?</h3>
+          <p class="faq__a">Sous 48 heures ouvrées. Le devis est envoyé par courriel après le métré sur place, et engage l'atelier sur le prix, les délais et les fournitures.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <div class="faq__n">02</div>
+        <div>
+          <h3 class="faq__q">Le métré est-il payant ? Travaillez-vous en dehors de Paris ?</h3>
+          <p class="faq__a">Le métré est offert à Paris intra-muros et en proche région (Neuilly, Boulogne, Versailles, Saint-Cloud, Saint-Maur). Au-delà, un défraiement est convenu à l'avance.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <div class="faq__n">03</div>
+        <div>
+          <h3 class="faq__q">Combien de temps faut-il entre la commande et la pose ?</h3>
+          <p class="faq__a">Comptez quatre à six semaines selon le tissu commandé chez nos maisons partenaires, la longueur des pièces et le calendrier de l'atelier. Pour les projets urgents, contactez-nous au téléphone.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <div class="faq__n">04</div>
+        <div>
+          <h3 class="faq__q">Travaillez-vous avec mon propre tissu, ou faut-il passer par vos partenaires ?</h3>
+          <p class="faq__a">Les deux. L'atelier confectionne en tissu client ou commande chez Pierre Frey, Houlès, Métaphores, Nobilis, Casamance, Designers Guild — les remises maison sont reportées sur le devis.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <div class="faq__n">05</div>
+        <div>
+          <h3 class="faq__q">Posez-vous aussi la tringlerie ? Pouvez-vous percer du marbre ou de la pierre ?</h3>
+          <p class="faq__a">Oui. La pose des tringles, rails motorisés, supports plafond et systèmes invisibles fait partie de la prestation. L'atelier perce moulures, plâtre, bois et pierre selon le support.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CTA BANNER ══ -->
+<section class="cta-banner">
+  <img src="project/assets/fabric-dark.jpg" alt="" class="cta-banner__bg" aria-hidden="true">
+  <div class="cta-banner__inner">
+    <div>
+      <h2 class="cta-banner__title">Un projet de rideaux ?<br><em>Parlons-en de vive voix.</em></h2>
+      <p class="cta-banner__lede">Quelques minutes au téléphone suffisent pour comprendre votre pièce, vos contraintes et le calendrier — avant tout métré.</p>
+    </div>
+    <div class="cta-banner__actions">
+      <a href="tel:+33145110540" class="cta-banner__phone">
+        <span>
+          <span class="cta-banner__phone-meta">Atelier · Du lundi au vendredi</span>
+          <span class="cta-banner__phone-num">01 45 11 05 40</span>
+        </span>
+      </a>
+      <span class="cta-banner__email">ou <a href="mailto:atelier@crea-plus.fr">atelier@crea-plus.fr</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FOOTER ══ -->
+<footer id="contact" class="lp-footer">
+  <div class="lp-footer__inner">
+    <div class="lp-footer__grid">
+      <div class="lp-footer__brand">
+        <div class="lp-footer__brand-wm">
+          <img src="project/assets/logo.png" class="lp-footer__brand-logo" alt="">
+          <span class="lp-footer__brand-name">Atelier Créa <em>Plus</em></span>
+        </div>
+        <p class="lp-footer__pitch">Maison parisienne de tapisserie d'ameublement. Rideaux sur mesure, réfection traditionnelle, agencement intérieur.</p>
+      </div>
+      <div>
+        <h4 class="lp-footer__head">Atelier</h4>
+        <ul class="lp-footer__list">
+          <li>13 rue Picot</li>
+          <li>75116 Paris</li>
+          <li>108 Avenue Carnot</li>
+          <li>94100 Saint-Maur-des-Fossés</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="lp-footer__head">Contact</h4>
+        <ul class="lp-footer__list">
+          <li><a href="tel:+33145110540">01 45 11 05 40</a></li>
+          <li><a href="mailto:atelier@crea-plus.fr">atelier@crea-plus.fr</a></li>
+          <li>Lun. – Ven. · 9h – 18h</li>
+          <li>Samedi · 9h – 12h, sur rendez-vous</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="lp-footer__head">Nous trouver</h4>
+        <img src="project/assets/map.jpg" alt="Carte" class="lp-footer__map">
+      </div>
+    </div>
+    <div class="lp-footer__base">
+      <span>© Atelier Créa Plus, 2026 — N° Siret 824 661 003 00018</span>
+      <span><a href="#">Mentions légales</a> · <a href="#">Politique de confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════ FLOATING PHONE ══ -->
+<a href="tel:+33145110540" class="phone-float" aria-label="Appeler l'atelier">
+  <span class="phone-float__icon" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+    </svg>
+  </span>
+  <span>
+    <span class="phone-float__meta">Appeler l'atelier</span>
+    <span class="phone-float__num">01 45 11 05 40</span>
+  </span>
+</a>
+
+<script>
+(function () {
+  /* ── Chip selection ── */
+  const chips = document.querySelectorAll('.form-card__chip');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) {
+        c.classList.remove('is-active');
+        c.setAttribute('aria-checked', 'false');
+      });
+      chip.classList.add('is-active');
+      chip.setAttribute('aria-checked', 'true');
+    });
+  });
+
+  /* ── Photo upload ── */
+  var photoInput = document.getElementById('photo-up-input');
+  var photoBtn = document.getElementById('photo-up-btn');
+  var photoLabel = document.getElementById('photo-up-label');
+  var photoList = document.getElementById('photo-up-list');
+  var photos = [];
+  var MAX_PHOTOS = 5;
+  var MAX_BYTES = 10 * 1024 * 1024;
+
+  photoBtn.addEventListener('click', function () {
+    if (photos.length < MAX_PHOTOS) photoInput.click();
+  });
+
+  photoInput.addEventListener('change', function () {
+    var incoming = Array.from(this.files || [])
+      .filter(function (f) { return f.type.startsWith('image/'); })
+      .filter(function (f) { return f.size <= MAX_BYTES; });
+    photos = photos.concat(incoming).slice(0, MAX_PHOTOS);
+    renderPhotos();
+    this.value = '';
+  });
+
+  function fmtSize(b) {
+    return b < 1024 * 1024
+      ? Math.round(b / 1024) + ' ko'
+      : (b / 1024 / 1024).toFixed(1) + ' Mo';
+  }
+
+  function renderPhotos() {
+    photoList.innerHTML = '';
+    photos.forEach(function (f, i) {
+      var url = URL.createObjectURL(f);
+      var li = document.createElement('li');
+      li.className = 'photo-up__item';
+      li.innerHTML =
+        '<span class="photo-up__thumb"><img src="' + url + '" alt=""></span>' +
+        '<span class="photo-up__meta">' +
+          '<span class="photo-up__name">' + escHtml(f.name) + '</span>' +
+          '<span class="photo-up__size">' + fmtSize(f.size) + '</span>' +
+        '</span>' +
+        '<button type="button" class="photo-up__remove" aria-label="Retirer ' + escHtml(f.name) + '">' +
+          '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">' +
+            '<path d="M2 2l8 8M10 2l-8 8"/>' +
+          '</svg>' +
+        '</button>';
+      (function (idx) {
+        li.querySelector('.photo-up__remove').addEventListener('click', function () {
+          photos.splice(idx, 1);
+          renderPhotos();
+        });
+      })(i);
+      photoList.appendChild(li);
+    });
+
+    photoBtn.disabled = photos.length >= MAX_PHOTOS;
+    photoLabel.textContent = photos.length === 0 ? 'Ajouter des photos' : "Ajouter d'autres photos";
+    photoList.style.display = photos.length > 0 ? 'flex' : 'none';
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /* ── Form submission ── */
+  var form = document.getElementById('contact-form');
+  var formContent = document.getElementById('form-content');
+  var formOk = document.getElementById('form-ok');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    formContent.style.display = 'none';
+    formOk.style.display = 'block';
+  });
+})();
+</script>
+</body>
+</html>

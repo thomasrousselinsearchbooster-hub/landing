@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelier Créa Plus — Landing Page Rideaux</title>
+
+  <link rel="stylesheet" href="design-system/colors_and_type.css">
+  <link rel="stylesheet" href="landing.css">
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #f0eee9; }
+    body { font-family: var(--font-sans); }
+
+    /* Section title in the canvas — overrides design system .section__title */
+    .dc-section-title {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      letter-spacing: -0.005em;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="landing-shared.jsx"></script>
+  <script type="text/babel" src="landing-variant-a.jsx"></script>
+  <script type="text/babel" src="landing-variant-b.jsx"></script>
+
+  <script type="text/babel">
+    const { useEffect } = React;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "accent": "#8B5E3C",
+      "tone": "editorial",
+      "showPress": true,
+      "showTesti": true,
+      "showFAQ": true
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      useEffect(() => {
+        document.documentElement.style.setProperty('--accent', t.accent);
+      }, [t.accent]);
+
+      const shared = {
+        accent: t.accent,
+        showPress: t.showPress,
+        showTesti: t.showTesti,
+        showFAQ: t.showFAQ,
+        tone: t.tone,
+      };
+
+      return (
+        <React.Fragment>
+          <DesignCanvas>
+            <DCSection
+              id="variants"
+              title="Landing Page · Rideaux sur mesure"
+              subtitle="Deux directions de conversion · cliquer une carte pour la voir plein écran"
+              gap={96}
+            >
+              <DCArtboard
+                id="conversion-first"
+                label="A · Conversion-first"
+                width={1440}
+                height={7200}
+              >
+                <VariantA {...shared} />
+              </DCArtboard>
+
+              <DCArtboard
+                id="service-led"
+                label="B · Service-led"
+                width={1440}
+                height={8600}
+              >
+                <VariantB {...shared} />
+              </DCArtboard>
+            </DCSection>
+          </DesignCanvas>
+
+          <TweaksPanel title="Tweaks">
+            <TweakSection label="Direction éditoriale">
+              <TweakRadio
+                label="Ton de la copy"
+                value={t.tone}
+                onChange={(v) => setTweak('tone', v)}
+                options={[
+                  { value: 'editorial', label: 'Éditorial' },
+                  { value: 'direct',    label: 'Direct' },
+                ]}
+              />
+              <TweakColor
+                label="Couleur d'accent"
+                value={t.accent}
+                onChange={(v) => setTweak('accent', v)}
+                options={['#8B5E3C', '#6B4A2E', '#5B6A4F', '#3D4F5A', '#7A3D3D']}
+              />
+            </TweakSection>
+            <TweakSection label="Preuve sociale">
+              <TweakToggle
+                label="Bandeau presse"
+                value={t.showPress}
+                onChange={(v) => setTweak('showPress', v)}
+              />
+              <TweakToggle
+                label="Témoignages clients"
+                value={t.showTesti}
+                onChange={(v) => setTweak('showTesti', v)}
+              />
+              <TweakToggle
+                label="Questions fréquentes"
+                value={t.showFAQ}
+                onChange={(v) => setTweak('showFAQ', v)}
+              />
+            </TweakSection>
+          </TweaksPanel>
+        </React.Fragment>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
